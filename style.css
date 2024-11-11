@@ -36,6 +36,16 @@ body{
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+.signup-box3{
+    width: 360px;
+    height: 360px;
+    margin: auto;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20%;
+}
+
 h1{
     text-align: center;
     padding-top: 15px;
@@ -174,6 +184,6 @@ form label.radiolbl.selected::after {
     border-color: #35a188; 
 
 }    */
-.end {
-    color: white;
+.end2 {
+    color: #49c1a2;
 }
