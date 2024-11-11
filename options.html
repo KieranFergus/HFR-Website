@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Secure Your Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="https://shib-idp.tufts.edu/shibboleth/images/logo.png" alt="Tufts University">
+    </div>
+    <div class="signup-box2">
+        <h2>Secure Your Account</h2>
+        <div class="logo">
+            <img src="lock.png" alt="">
+        </div>
+        
+        <!-- Form with onsubmit event -->
+        <form onsubmit="submitForm(event)">
+            <label class="radiolbl" onclick="selectOption(this)">
+                <input type="radio" name="options" id="option1" value="option1"> Facial Scan
+            </label>
+            <label class="radiolbl" onclick="selectOption(this)">
+                <input type="radio" name="options" id="option2" value="option2"> Photo Upload
+            </label>
+            <label class="radiolbl" onclick="selectOption(this)">
+                <input type="radio" name="options" id="option3" value="option3"> Security Questions
+            </label>
+            <input type="submit" value="Proceed" class="button">
+        </form>
+
+        <!-- JavaScript to handle form submission and selection highlight -->
+        <script>
+            function submitForm(event) {
+                event.preventDefault(); // Prevent form from reloading the page
+
+                // Get selected option value
+                const options = document.getElementsByName("options");
+                let selectedValue;
+
+                for (const option of options) {
+                    if (option.checked) {
+                        selectedValue = option.value;
+                        break;
+                    }
+                }
+
+                if (!selectedValue) {
+                    alert("Please select an option before submitting.");
+                    return;
+                }
+                window.location.href = "end.html";
+            }
+
+
+            function selectOption(label) {
+                // Deselect all options
+                document.querySelectorAll('.radiolbl').forEach(lbl => lbl.classList.remove('selected'));
+                // Highlight selected option
+                label.classList.add('selected');
+                // Check the corresponding radio button
+                label.querySelector('input[type="radio"]').checked = true;
+            }
+        </script>
+
+        <br><br><br>
+        <div class="opt-out">
+            <a href="end.html">I want to opt out of this study</a>
+        </div>
+    </div>
+    <br>
+    <div class="logo2">
+        Powered by <img src="https://shib-idp.tufts.edu/shibboleth/images/shib_logo.png" alt="Shibboleth">
+    </div>
+</body>
+</html>
